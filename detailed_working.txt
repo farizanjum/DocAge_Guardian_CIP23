@@ -1,0 +1,84 @@
+This is the detailed description about what the code does?
+	
+
+1. The code begins by importing the necessary libraries for the program. Here's a brief description of each library:
+   - `tkinter`: A library for creating GUI applications.
+   - `filedialog`: A module within `tkinter` that provides a file dialog box for file selection.
+   - `PIL`: The Python Imaging Library, used for image processing tasks.
+   - `pytesseract`: A Python wrapper for the Tesseract OCR engine, which is used for extracting text from images.
+   - `re`: A library for working with regular expressions, used for pattern matching.
+   - `datetime`: A module for working with dates and times.
+   - `timedelta`: A module within `datetime` for representing time intervals.
+   - `termcolor`: A library for printing colored text in the console.
+   - `pyfiglet`: A module for generating ASCII art from text.
+   - `gtts`: A library to interface with Google Translate's text-to-speech API. 
+   - `pyttsx3`: Another text  to speech library, which is offline. 
+
+2. The code creates a Tkinter window, which serves as the graphical user interface for the program.
+
+3. The `open_file()` function is defined, which is triggered when the user clicks the "Open File" button. 
+This function allows the user to select an image file using the file dialog provided
+by `filedialog.askopenfilename()`.
+After that a ASCII text  " Hello! Welcome to DocAge Guardian"
+and then, sound play with the help of pyttsx3 offline library.
+
+4. The selected image file is opened using the `Image.open()` function from the PIL library, 
+creating an image object.
+
+5. The `pytesseract.image_to_string()` function is called to extract text from the image. 
+It uses OCR to recognize the characters in the image and convert them into text.
+
+6. The extracted text is printed to the console using the `print()` function.
+
+7. The code uses regular expressions (`re`) to search for a specific pattern representing the 
+date of birth (DOB) in the extracted text. The pattern used is `r"DOB: (\d{2}-\d{2}-\d{4})"`, 
+which matches a string with the format "DOB: dd-mm-yyyy".
+This pattern assumes that the DOB is preceded by the text "DOB:" and is followed by a space.
+
+8. If a match for the DOB pattern is found in the extracted text, the code extracts the DOB using
+`dob_match.group(1)`, where `dob_match` is the matched pattern object.The extracted DOB represents
+the birth date in the format "dd-mm-yyyy".
+
+9. The extracted DOB is printed to the console.
+
+10. The DOB is converted to a `datetime` object using the `datetime.strptime()` function.
+This function parses the DOB string and creates a `datetime` object with the specified format.
+In this case, the format used is "%m-%d-%Y", which corresponds to "mm-dd-yyyy".
+
+11. The current date is obtained using `datetime.now().date()`, which returns the current date
+as a `date` object.
+
+12. The age is calculated by subtracting the birth year from the current year and adjusting for the month
+and day.This calculation takes into account whether the current month and day are before the 
+birth month and day, which is achieved by usingthe expression 
+`(today.month, today.day) < (dob_obj.month, dob_obj.day)`.
+13. The calculated age is printed to the console.
+
+14. Based on the age calculation, the code performs access verification. If the age is 18 or greater, 
+it prints "Access Granted!" in green color using the `termcolor.cprint()` function.
+If the age is less than 18, it prints "Access Denied!" in red color. 
+If the DOB pattern is not found, it prints "DOB Not Found!" in yellow color.
+
+It also include text-to-speech. in which differents text are converted to speech by using Google API gTTs
+and an offline python library named as pyttsx3.
+
+15. The code defines three functions, 
+
+`slant_text_art_green()`, 
+`slant_text_art_red()`, and 
+`slant_text_art_yellow()`,
+`welcome_DocAge()
+
+which are used to generate ASCII art 
+using `pyfiglet` and colorize it using `termcolor`. Each function takes a specific text as
+input and generates stylized art in a slant font.
+
+16. The Tkinter window is created with an "Open File" button. When the button is clicked, it triggers the
+`open_file()` function.
+
+17. The Tkinter event loop `window.mainloop()` is started, which keeps the window open and listens
+for user interactions.
+
+Overall, this code provides a GUI-based interface to open an image file, extract text from the 
+image, identify the DOB, calculate the age, and perform access verification based on age criteria. 
+It also includes ASCII art, text-to speech and colored text for visual & vocal presentation .
