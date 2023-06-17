@@ -1,0 +1,60 @@
+Here, is a INSTALLATION GUIDE to those who want to use this program in their SYSTEM:
+
+1. Ensure Python is Installed:
+   - Make sure you have Python 3.x installed on your system. You can download Python
+     from the official Python website (https://www.python.org) and follow the installation instructions
+     for your operating system.
+
+2. Install Required Dependencies:
+   - Open a terminal or command prompt.
+   - Use the following commands to install the required dependencies:
+     ```
+     pip install tkinter               #https://docs.python.org/3/library/tkinter.html
+     pip install pillow                #https://pypi.org/project/Pillow/
+     pip install pytesseract     #https://pypi.org/project/pytesseract/
+     #if you face problems(related to path) in running pytesseract in your system.Then, make sure
+     to define path by using this link 
+     https://www.edureka.co/community/163488/pytesseract-tesseractnotfound-error-tesseract-installed
+     pip install termcolor        #https://pypi.org/project/termcolor/
+     pip install pyfiglet            #https://pypi.org/project/pyfiglet/           
+     pip install gtts                  #https://pypi.org/project/gTTS/
+     pip install playsound      #https://pypi.org/project/playsound/      
+     pip install pyttsx3           #https://pypi.org/project/pyttsx3/
+     ```
+
+3. Clone the Repository:
+   - Go to the GitHub repository page (e.g., https://github.com/your-username/repository-name).
+   - Click on the "Code" button and copy the repository URL.
+   - Open a terminal or command prompt.
+   - Use the following command to clone the repository to your local machine:
+     ```
+     git clone <repository-url>
+     ```
+   - Replace `<repository-url>` with the URL you copied.
+
+4. Navigate to the Repository:
+   - Use the following command to navigate to the repository directory:
+     ```
+     cd repository-name
+     ```
+   - Replace `repository-name` with the actual name of the repository.
+
+5. Run the Program:
+   - Use the following command to run the program:
+     ```
+     python docage_guardian.py
+     ```
+
+6. Follow the Instructions:
+   - The program will open a GUI window.
+   - Click the "Open File" button to select an image file containing text.
+   - The program will extract the text from the image using OCR and perform access verification
+      based on the age criteria.
+   - Visual feedback will be displayed in the console, and audio feedback will be played if access
+      is granted or denied.
+
+Note: Make sure you have the necessary permissions to access the image file and that it is in one
+of the supported formats (JPEG, JPG, PNG). Also, ensure that your system has a working audio output
+to hear the audio feedback.
+That's the suggested installation process for the code. Feel free to modify it as needed based
+on your specific requirements or any additional setup steps required for your environment.
