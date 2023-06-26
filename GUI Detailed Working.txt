@@ -1,0 +1,63 @@
+This is the detailed description about what the code (With GUI) does?
+
+1. The code begins by importing the necessary libraries and modules required for various functionalities, including tkinter for GUI, filedialog for file selection, PIL for image handling, pytesseract for OCR, re for regular expressions, datetime for date and time manipulation, termcolor for text styling, pyfiglet for ASCII art, gtts for text-to-speech, playsound for playing sound, and pyttsx3 for text-to-speech.
+
+2. The Tkinter window is created using `tkinter.Tk()` and the window title is set to "DocAge Guardian".
+
+3. The background image is loaded, resized, and displayed on the window using a Tkinter label (`tk.Label`)
+ with an image widget (`ImageTk.PhotoImage`).
+
+4. The window size is set to 500x500 pixels and made non-resizable.
+
+5. The logo image is loaded, resized, and displayed on the window using a Tkinter label (`tk.Label`). 
+The label's background color is set to black (`bg="black"`).
+
+6. The `open_file()` function is defined, which is called when the "Open File" button is clicked.
+ It opens a file dialog to allow the user to select an image file (`filetypes=[("Image files", "*.jpg;*.jpeg;*.png")]`). The selected image is opened using `Image.open()`.
+
+7. The selected image is processed using OCR (`pytesseract.image_to_string()`) 
+to extract text from the image.
+
+8. The extracted text is searched for a date of birth (DOB) using a regular expression pattern
+ (`r"DOB: (\d{2}-\d{2}-\d{4})"`). If a match is found, the DOB is extracted.
+
+9. The age is calculated based on the DOB using the `datetime.strptime()` function to convert 
+the DOB string to a datetime object. The current date is obtained using `datetime.now().date()`.
+ The age is then calculated as the difference between the current year and the year of the DOB, adjusted
+ for the month and day comparison.
+
+10. If the age is 18 or older, the access is granted. The access label is updated to display "Access Granted!" with green text color (`access_label.config(text="Access Granted!", fg="green")`). The voice message "Heyy, Access Granted!" is played using the `voice_1()` function.
+
+11. If the age is less than 18, the access is denied. The access label is updated to display 
+"Access Denied! User is under 18." with red text color (`access_label.config(text="Access Denied! User is under 18.", fg="red")`). The voice message "Heyy, Access Denied!" is played using the `voice_2()` function.
+
+12. If the DOB is not found in the extracted text, the access label is updated to display 
+"Date of Birth Not Found." with yellow text color (`access_label.config(text="Date of Birth Not Found.", fg="yellow")`). The voice message "Sorry, Date of Birth Not Found." is played using the `voice_3()` function.
+
+13. The `voice_1()`, `voice_2()`, and `voice_3()` functions use the pyttsx3 library to initialize a text-to-speech 
+engine (`pyttsx3.init()`) and play the respective voice messages using the `engine.say()` and `engine.runAndWait()` functions.
+
+14. The `welcome_message()` function is defined to display a welcome message using text-to-speech. 
+The engine is initialized, the welcome message is set, and the engine speaks the message using `engine.say()` and `engine.runAndWait()`
+
+.
+
+15. The welcome message is displayed and played by calling the `welcome_message()` function.
+
+16. The "Open File" button is created using a Tkinter button (`tk.Button`) with the text "Open File" and 
+a command set to `open_file()`. The button's background color is set to a specific color (`bg="#794cec"`).
+
+17. The access label is created using a Tkinter label (`tk.Label`) with an empty text, a font set to "Helvetica" 
+with a size of 16, a black background color (`bg="black"`), and white text color (`fg="white"`).
+
+18. The output label is created using a Tkinter label (`tk.Label`) with an empty text, a font set to "Helvetica"
+ with a size of 100, a black background color (`bg="black"`), and white text color (`fg="white"`).
+
+19. The Tkinter event loop is run using `window.mainloop()`, which keeps the window displayed and handles 
+user interactions.
+
+That's a detailed explanation of the provided code. It creates a GUI window, allows the user to open an
+ image file, extracts text from the image using OCR, identifies the date of birth from the extracted text, 
+calculates the age based on the DOB, and performs access verification based on the age criteria. 
+Voice messages are played using text-to-speech for access granted, access denied, and DOB not found 
+scenarios.
