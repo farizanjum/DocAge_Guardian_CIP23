@@ -78,20 +78,23 @@ def open_file():
 
         # Check if the person is 18 years or older
         if age >= 18:
-            # Set the access label to "Access Granted!" with green text color
+            # Set the access label to "Access Granted!" with green text color         #CASE 1: testid_3_case_1
             access_label.config(text="Access Granted!", fg="green")
             # Play the "Access Granted" voice message
             voice_1()
         else:
-            # Set the access label to "Access Denied! User is under 18." with red text color
+            # Set the access label to "Access Denied! User is under 18." with red text color   #CASE 2: testid_1_case_2
             access_label.config(text="Access Denied! User is under 18.", fg="red")
             # Play the "Access Denied" voice message
             voice_2()
     else:
-        # Set the access label to "Date of Birth Not Found." with yellow text color
+        # Set the access label to "Date of Birth Not Found." with yellow text color     #CASE 1: testid_2_case_3
         access_label.config(text="Date of Birth Not Found.", fg="yellow")
         # Play the "Date of Birth Not Found" voice message
         voice_3()
+"""
+TEST ID GOOGLEDRIVE LINK: https://drive.google.com/drive/folders/117AcUudxLuW4K25L6z8fsT_mHrXtgXVK?usp=drive_link
+"""
 
 # Function to play the "Access Granted" voice message
 def voice_1():
